@@ -1,0 +1,5 @@
+# //Ignorar arquivos não relevantes no repositório
+
+/node_modules
+.env
+
