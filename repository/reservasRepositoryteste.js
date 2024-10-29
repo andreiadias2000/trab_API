@@ -1,13 +1,14 @@
 const request = require('supertest'); // Bibliotecas necessárias para testes
-const app = require('./app'); 
+const app = require('./app'); // o app Express esteja exportado de um arquivo chamado 'app.js'
+const { reservarSala } = require('../reservasRepository');
 
 describe('Testando o CRUD de Reservas', () => {
   
   // Testando a rota GET para listar todas as reservas
   it('Deve listar todas as reservas', async () => {
     const res = await request(app).get('/reservas');
-    expect(res.statusCode).toEqual(200); // Espera um código de resposta 200 (sucesso)
-    expect(Array.isArray(res.body)).toBe(true); // Espera que a resposta seja um array
+    expect(res.statusCode).toEqual(200); // (sucesso)
+    expect(Array.isArray(res.body)).toBe(true); // resposta será uma lista
   });
 
   // Testando a rota POST para criar uma nova reserva
